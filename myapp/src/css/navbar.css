@@ -1,0 +1,19 @@
+.navBar {
+    background-color: transparent;
+    z-index: 1;
+}
+
+a {
+    color: white !important;
+    text-decoration: underline !important;
+    text-underline-offset: 10px;
+    transition: 0.5s;
+}
+
+
+
+
+
+a:hover {
+    color: grey !important;
+}

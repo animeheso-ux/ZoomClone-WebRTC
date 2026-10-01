@@ -1,0 +1,481 @@
+:root {
+    --zf-bg: #0c225e;
+    --zf-panel: #0e1526;
+    --zf-panel-alt: #121b30;
+    --zf-input: #131c33;
+    --zf-border: rgba(255, 255, 255, 0.07);
+    --zf-text: #eef1f8;
+    --zf-text-dim: #f1f5ff;
+    --zf-blue-1: #4f6df5;
+    --zf-blue-2: #38bdf8;
+    --zf-gradient: linear-gradient(135deg, var(--zf-blue-1), var(--zf-blue-2));
+    --zf-font: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.Zoomify-Shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: 220px 1fr 280px;
+    height: 100vh;
+    background: var(--zf-bg);
+    color: var(--zf-text);
+    font-family: var(--zf-font);
+    overflow: hidden;
+}
+
+.Bg-Glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(79, 109, 245, 0.16), transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.10), transparent 50%);
+    z-index: 0;
+}
+
+/* Sidebar */
+.Side-Bar-Div {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(14, 21, 38, 0.7);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid var(--zf-border);
+    padding: 24px 16px;
+    gap: 32px;
+}
+
+.Brand-Mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 4px;
+}
+
+.Ring {
+    fill: none;
+    stroke: url(#none);
+}
+
+.Ring-Outer {
+    stroke: rgba(79, 109, 245, 0.35);
+    stroke-width: 2;
+}
+
+.Ring-Inner {
+    stroke: rgba(56, 189, 248, 0.5);
+    stroke-width: 2;
+}
+
+.Ring-Dot {
+    fill: #38bdf8;
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+}
+
+.Brand-Name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.Nav-List {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.Nav-Item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    color: var(--zf-text-dim);
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.Nav-Item:hover {
+    background: rgba(79, 109, 245, 0.12);
+    color: var(--zf-text);
+}
+
+.Nav-Icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.Profile-Div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--zf-panel-alt);
+    border: 1px solid var(--zf-border);
+}
+
+.Avatar-Ring {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    background: var(--zf-gradient);
+    color: #060a14;
+    flex-shrink: 0;
+}
+
+.Profile-Meta h1 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.Status-Pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--zf-text-dim);
+}
+
+.Status-Dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #38bdf8;
+    display: inline-block;
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.8);
+}
+
+/* Main */
+.Main-Div {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 56px;
+    gap: 40px;
+}
+
+.Greeting-Row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.Date-Text {
+    color: var(--zf-text-dim);
+    font-size: 0.9rem;
+    margin: 0 0 4px;
+}
+
+.Time-Text {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.Greeting-Text {
+    color: var(--zf-text-dim);
+    font-size: 0.95rem;
+}
+
+.Action-Grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+}
+
+.Action-Tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 20px;
+    height: 140px;
+    border-radius: 16px;
+    border: 1px solid var(--zf-border);
+    background: var(--zf-panel);
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--zf-text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.Action-Tile:hover {
+    transform: translateY(-2px);
+    border-color: var(--zf-blue-2);
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.12);
+}
+
+.Action-Tile .Tile-Icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    margin-bottom: auto;
+    background: rgba(79, 109, 245, 0.14);
+    border: 1px solid rgba(79, 109, 245, 0.4);
+}
+
+.Action-Primary {
+    background: var(--zf-gradient);
+    border: none;
+    color: #060a14;
+}
+
+.Action-Primary .Tile-Icon {
+    background: rgba(6, 10, 20, 0.2);
+    border: 1px solid rgba(6, 10, 20, 0.25);
+}
+
+.Action-Primary .Tile-Sub {
+    color: rgba(6, 10, 20, 0.7);
+}
+
+.Action-Primary:hover {
+    box-shadow: 0 10px 28px rgba(56, 189, 248, 0.35);
+}
+
+.Tile-Label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.Tile-Sub {
+    color: var(--zf-text-dim);
+    font-size: 0.8rem;
+}
+
+/* Upcoming panel */
+.Upcoming-Panel {
+    position: relative;
+    z-index: 1;
+    background: rgba(14, 21, 38, 0.7);
+    backdrop-filter: blur(12px);
+    border-left: 1px solid var(--zf-border);
+    padding: 24px;
+}
+
+.Upcoming-Panel h3 {
+    margin: 0 0 16px;
+    color: var(--zf-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+.Meeting-Card {
+    border: 1px dashed var(--zf-border);
+    border-radius: 14px;
+    padding: 20px;
+    background: var(--zf-input);
+}
+
+.Meeting-Time {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.Meeting-Sub {
+    color: var(--zf-text-dim);
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+
+
+
+
+.Join-Shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--zf-bg);
+    color: var(--zf-text);
+    font-family: var(--zf-font);
+    overflow: hidden;
+}
+
+.Join-Card {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    padding: 40px 36px;
+    border-radius: 20px;
+    background: rgba(14, 21, 38, 0.75);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--zf-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.Back-Link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--zf-text-dim);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 24px;
+    transition: color 0.15s ease;
+}
+
+.Back-Link:hover {
+    color: var(--zf-text);
+}
+
+.Back-Icon {
+    width: 16px;
+    height: 16px;
+}
+
+.Join-Brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.Join-Title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.Join-Subtitle {
+    color: var(--zf-text-dim);
+    font-size: 0.9rem;
+    margin: 0 0 28px;
+}
+
+.Join-Form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.Field-Label {
+    font-size: 0.8rem;
+    color: var(--zf-text-dim);
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+.Field-Label:first-child {
+    margin-top: 0;
+}
+
+.Join-Input {
+    background: var(--zf-input);
+    border: 1px solid var(--zf-border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--zf-text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.Join-Input::placeholder {
+    color: #5a6480;
+}
+
+.Join-Input:focus {
+    border-color: var(--zf-blue-2);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.Toggle-Row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.Toggle-Item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--zf-text-dim);
+    cursor: pointer;
+}
+
+.Toggle-Item input {
+    display: none;
+}
+
+.Toggle-Box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--zf-border);
+    background: var(--zf-input);
+    flex-shrink: 0;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.Toggle-Item input:checked + .Toggle-Box {
+    background: var(--zf-gradient);
+    border-color: transparent;
+}
+
+.Toggle-Item input:checked + .Toggle-Box::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #060a14;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.Join-Button {
+    margin-top: 24px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: var(--zf-gradient);
+    color: #060a14;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.Join-Button:hover:not(:disabled) {
+    box-shadow: 0 10px 28px rgba(56, 189, 248, 0.35);
+}
+
+.Join-Button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
